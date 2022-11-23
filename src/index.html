@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8" />
+        <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+        <title>Title</title>
+        <link href="css/style.css" rel="stylesheet" />
+        <script>
+            function loadGame() {
+                const squares = Array.from(document.getElementsByClassName("square"))
+
+                squares.map((square) => {
+                    square.addEventListener("click", ({target}) => {
+                        target.children[0].classList.toggle("o")
+                    })
+                })
+            }
+        </script>
+    </head>
+
+    <body onload="loadGame()">
+        <main>
+            <section>
+                <div class="game">
+                    <div class="square top left">
+                        <div id="primeiro"></div>
+                    </div>
+                    <div class="square top">
+                        <div></div>
+                    </div>
+                    <div class="square top right">
+                        <div></div>
+                    </div>
+                    <div class="square left">
+                        <div></div>
+                    </div>
+                    <div class="square">
+                        <div></div>
+                    </div>
+                    <div class="square right">
+                        <div></div>
+                    </div>
+                    <div class="square bottom left">
+                        <div></div>
+                    </div>
+                    <div class="square bottom">
+                        <div></div>
+                    </div>
+                    <div class="square bottom right">
+                        <div></div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </body>
+</html>
