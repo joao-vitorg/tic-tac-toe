@@ -3,27 +3,19 @@
     <head>
         <meta charset="UTF-8" />
         <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-        <title>Title</title>
-        <link href="css/style.css" rel="stylesheet" />
-        <script>
-            function loadGame() {
-                const squares = Array.from(document.getElementsByClassName("square"))
-
-                squares.map((square) => {
-                    square.addEventListener("click", ({target}) => {
-                        target.children[0].classList.toggle("o")
-                    })
-                })
-            }
-        </script>
+        <title>Tic tac toe</title>
+        <link href="css/game.css" rel="stylesheet" />
+        <link href="css/score.css" rel="stylesheet" />
+        <link href="css/footer.css" rel="stylesheet" />
+        <script defer src="js/script.js"></script>
     </head>
 
-    <body onload="loadGame()">
+    <body>
         <main>
-            <section>
-                <div class="game">
+            <section id="game">
+                <div id="board">
                     <div class="square top left">
-                        <div id="primeiro"></div>
+                        <div></div>
                     </div>
                     <div class="square top">
                         <div></div>
@@ -50,7 +42,33 @@
                         <div></div>
                     </div>
                 </div>
+                <div id="restart" style="display: none"></div>
+            </section>
+
+            <section id="scores">
+                <div class="player active" id="player1">
+                    <p class="name"></p>
+                    <p class="score">0</p>
+                </div>
+                <div class="player" id="player2">
+                    <p class="name"></p>
+                    <p class="score">0</p>
+                </div>
             </section>
         </main>
+
+        <footer>
+            <p>Feito por João Vitor</p>
+            <div>
+                <a href="https://github.com/joao-vitorg" target="_blank">
+                    <img alt="" src=".github/github.png" />
+                    <p>Github</p>
+                </a>
+                <a href="https://www.linkedin.com/in/joao-vitorg" target="_blank">
+                    <img alt="" src=".github/linkedin.png" />
+                    <p>Linkedin</p>
+                </a>
+            </div>
+        </footer>
     </body>
 </html>
