@@ -6,9 +6,9 @@ let playerTurn = 0,
 let boardElement, restartElement, squaresElement, playersElement
 
 function loadGame() {
-    // Make login
-    let users = JSON.parse(localStorage.getItem("users"))
-    if (!users) users = ["Player 1", "Player 2"]
+    // Get users
+    let users = new URLSearchParams(window.location.search).getAll('user')
+    if (!users || users.length !== 2) users = ["player 1", "player 2"]
 
     // Load elements
     boardElement = document.getElementById("board")
