@@ -63,17 +63,14 @@ function play(x, y) {
 }
 
 function verifyBoard(x, y) {
-    if (round === 9) {
-        tie()
-        return
-    }
-
-    ;[
+    const verifyLines = [
         board[x].reduce((acc, curr) => acc + curr.player, 0),
         board.reduce((acc, curr) => acc + curr[y].player, 0),
         board.reduce((acc, curr, index) => acc + curr[index].player, 0),
         board.reduce((acc, curr, index) => acc + curr[2 - index].player, 0),
-    ].find((sum, type) => checkLine(sum, type, x, y))
+    ].some((sum, type) => checkLine(sum, type, x, y))
+
+    if (!verifyLines && round === 9) tie()
 }
 
 function checkLine(sum, type, x, y) {
