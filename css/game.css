@@ -21,7 +21,9 @@ main {
 }
 
 #game {
-    height: 400px;
+    width: 350px;
+    height: 350px;
+    margin: 0 auto;
 }
 
 #board {
@@ -59,6 +61,11 @@ main {
     opacity: 0.5;
 }
 
+.reset .square {
+    border-color: rgba(255, 255, 255, 0.5);
+    background-clip: padding-box;
+}
+
 .tie {
     animation: border-blink 0.3s steps(1) 3;
 }
@@ -67,6 +74,7 @@ main {
     z-index: -1;
 }
 
+.oturn .square:hover:not(.clicked) > div,
 .o > div {
     width: 80%;
     height: 80%;
@@ -75,6 +83,8 @@ main {
     position: absolute;
 }
 
+.xturn .square:hover:not(.clicked) > div::before,
+.xturn .square:hover:not(.clicked) > div::after,
 .x > div::before,
 .x > div::after {
     content: "";
@@ -87,28 +97,36 @@ main {
     border-radius: 3px;
 }
 
+.xturn .square:hover:not(.clicked) > div::before,
 .x > div::before {
     transform: rotate(45deg);
 }
 
+.xturn .square:hover:not(.clicked) > div::after,
 .x > div::after {
     transform: rotate(-45deg);
 }
 
+.oturn .square:hover:not(.clicked) > div,
+.xturn .square:hover:not(.clicked) > div::before,
+.xturn .square:hover:not(.clicked) > div::after {
+    filter: brightness(0.5);
+}
+
 .top {
-    border-top-color: transparent;
+    border-top-color: transparent !important;
 }
 
 .left {
-    border-left-color: transparent;
+    border-left-color: transparent !important;
 }
 
 .right {
-    border-right-color: transparent;
+    border-right-color: transparent !important;
 }
 
 .bottom {
-    border-bottom-color: transparent;
+    border-bottom-color: transparent !important;
 }
 
 @keyframes blink {
@@ -120,14 +138,5 @@ main {
 @keyframes border-blink {
     50% {
         border-color: black;
-    }
-}
-
-@keyframes appear {
-    from {
-        transform: scale(0.3);
-    }
-    to {
-        transform: scale(1);
     }
 }

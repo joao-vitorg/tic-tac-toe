@@ -25,6 +25,10 @@
     font-size: 2.5rem;
 }
 
-.player:not(.active) {
+.oturn #player2 {
+    opacity: 0.5;
+}
+
+.xturn #player1 {
     opacity: 0.5;
 }

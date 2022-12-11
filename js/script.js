@@ -3,15 +3,16 @@ let playerTurn = 0,
     board = [[], [], []],
     scores = [0, 0]
 
-let boardElement, restartElement, squaresElement, playersElement
+let boardElement, restartElement, squaresElement, playersElement, mainElement
 
 function loadGame() {
     // Get users
-    let users = new URLSearchParams(window.location.search).getAll('user')
+    let users = new URLSearchParams(window.location.search).getAll("user")
     if (!users || users.length !== 2) users = ["player 1", "player 2"]
 
     // Load elements
     boardElement = document.getElementById("board")
+    mainElement = document.querySelector("main")
     restartElement = document.getElementById("restart")
     squaresElement = Array.from(document.getElementsByClassName("square"))
     playersElement = Array.from(document.querySelectorAll("#player1, #player2"))
@@ -58,8 +59,8 @@ function play(x, y) {
     verifyBoard(x, y)
 
     playerTurn = ++playerTurn % 2
-    playersElement[0].classList.toggle("active")
-    playersElement[1].classList.toggle("active")
+    mainElement.classList.toggle("oturn")
+    mainElement.classList.toggle("xturn")
 }
 
 function verifyBoard(x, y) {
