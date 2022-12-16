@@ -25,10 +25,10 @@
     font-size: 2.5rem;
 }
 
-.oturn #player2 {
+.userTurn #pc {
     opacity: 0.5;
 }
 
-.xturn #player1 {
+.pcTurn #user {
     opacity: 0.5;
 }

@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap");
 
 * {
     margin: 0;
@@ -6,7 +6,7 @@
 }
 
 body {
-    font-family: 'Press Start 2P', cursive;
+    font-family: "Press Start 2P", cursive;
     background-color: black;
     color: white;
 }
@@ -49,7 +49,7 @@ main {
     border: 3px solid white;
 }
 
-.square:not(.clicked):hover {
+.userTurn .square:not(.clicked):hover {
     cursor: pointer;
 }
 
@@ -73,7 +73,7 @@ main {
     z-index: -1;
 }
 
-.oturn .square:hover:not(.clicked) > div,
+.userTurn .square:hover:not(.clicked) > div,
 .o > div {
     width: 80%;
     height: 80%;
@@ -82,8 +82,6 @@ main {
     position: absolute;
 }
 
-.xturn .square:hover:not(.clicked) > div::before,
-.xturn .square:hover:not(.clicked) > div::after,
 .x > div::before,
 .x > div::after {
     content: "";
@@ -96,19 +94,15 @@ main {
     border-radius: 3px;
 }
 
-.xturn .square:hover:not(.clicked) > div::before,
 .x > div::before {
     transform: rotate(45deg);
 }
 
-.xturn .square:hover:not(.clicked) > div::after,
 .x > div::after {
     transform: rotate(-45deg);
 }
 
-.oturn .square:hover:not(.clicked) > div,
-.xturn .square:hover:not(.clicked) > div::before,
-.xturn .square:hover:not(.clicked) > div::after {
+.userTurn .square:hover:not(.clicked) > div {
     filter: brightness(0.5);
 }
 
